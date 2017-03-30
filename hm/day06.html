@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>画了一个园</title>
+		<style type="text/css">
+			*{
+				overflow: hidden;
+			}
+			canvas{
+				background: #CCC;
+			}
+			div{
+				width: 500px;
+				height: 500px;
+				margin-top: 20px;
+				margin-left: 20px;
+				float: left;
+			}
+		</style>
+		<script src="../js/angle.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<div>
+			<canvas id="can">该浏览器不支持canvas</canvas>
+		</div>
+		<div>
+			<canvas id="vas">该浏览器不支持canvas</canvas>
+		</div>
+		<div>
+			<canvas id="gary">该浏览器不支持canvas</canvas>
+		</div>
+	</body>
+	<script>
+		/*画几个圆*/
+		var can = document.getElementById("can");
+		can.width = 500;
+		can.height = 500;
+		var ctx = can.getContext("2d");
+		for(var i = 0;i < 10;i++){
+			ctx.beginPath();
+			ctx.arc(i*25,i*25,(i+1)*8,0,Math.PI*2,true);
+			ctx.closePath();
+			ctx.fillStyle = 'rgba(255,0,255,'+ (10 - i) * 0.1 + ')';
+			ctx.fill()
+		}
+		
+		/* 画一个带圆角的矩形*/
+		//先定义一个方法
+		function createArcRect(ctx,x1,y1,width,height,radius){
+			ctx.beginPath();
+			//从左上角开始画
+			ctx.moveTo(x1+radius,y1);
+			ctx.lineTo(x1+width-radius,y1);
+			ctx.arcTo(x1+width,y1,x1+width,y1+radius,radius);
+			ctx.lineTo(x1+width,y1+height-radius);
+			ctx.arcTo(x1+width,y1+height,x1+width-radius,y1+height,radius);
+			ctx.lineTo(x1+radius,y1+height);
+			ctx.arcTo(x1,y1+height,x1,y1+height-radius,radius);
+			ctx.lineTo(x1,y1+radius);
+			ctx.arcTo(x1,y1,x1+radius,y1,radius);
+			ctx.closePath();
+		}
+		/* 获取画布 */
+		var vas = document.getElementById("vas");
+		vas.width = 500;
+		vas.height = 500;
+		var context = vas.getContext("2d");
+		
+		createArcRect(context,20,20,300,100,15);
+		//填充矩形
+//		context.fillStyle = "black";
+//		context.fill();
+        //空心矩形
+        context.lineWidth = 2;
+        context.strokeStyle = "aquamarine";
+        context.stroke();
+		
+		//画多角形
+		var cv = document.getElementById("gary");
+		cv.width = 500;
+		cv.height = 500;
+		var cc = cv.getContext("2d");
+		
+		//画三角形
+		createAngle(cc,3,60,60,60);
+		cc.fillStyle = "aqua";
+		cc.fill();
+		
+		//画五角星
+		cc.lineWidth = 3;
+		createAngle(cc,5,60,200,60);
+		cc.strokeStyle = "slateblue";
+		cc.stroke();
+		
+		//画多角形
+		//画三角形
+		createAngle(cc,17,250,90,40);
+		cc.fillStyle = "fuchsia";
+		cc.fill();
+	</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js练习</title>
+		<style type="text/css">
+			canvas{
+				background: #CCC;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="my_canvas">这是canvas,能看到文字代表你的浏览器不支持canvas</canvas>
+	</body>
+	<script>
+		var myCanvas = document.getElementById("my_canvas");
+		myCanvas.width=500;
+		myCanvas.height=500;
+
+		
+		var ctx = myCanvas.getContext("2d");
+		
+		ctx.beginPath();
+		ctx.lineJoin = "round";
+		ctx.moveTo(100,50);
+		ctx.lineTo(200,300);
+		ctx.lineTo(400,150);
+		ctx.closePath();
+		ctx.lineWidth = 30;
+		ctx.strokeStyle = "red";
+		ctx.stroke();
+		ctx.fillStyle = "green";
+		ctx.fill();
+	</script>
+</html>

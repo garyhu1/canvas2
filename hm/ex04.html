@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>画矩形</title>
+		<style type="text/css">
+			canvas{
+				background: #CCC;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="gary">
+			该浏览器不支持canvas
+		</canvas>
+	</body>
+	<script>
+		var cav = document.getElementById("gary");
+		cav.width = 1000;
+		cav.height = 1000;
+		var ctx = cav.getContext("2d");
+		
+		ctx.fillStyle = "red";
+		ctx.fillRect(100,100,200,100)
+		
+		ctx.fillStyle = "blue";
+		ctx.fillRect(120,120,200,100)
+		
+		ctx.fillStyle = "yellow";
+		ctx.fillRect(140,140,200,100)
+		
+		ctx.fillStyle = "gray";
+		ctx.fillRect(160,160,200,100)
+		
+		ctx.strokeStyle = "#BDB76B";
+		ctx.strokeRect(180,180,200,100);
+		ctx.lineWidth = 10;
+		
+		ctx.fillStyle = "#F4A460";
+		ctx.font = "italic 50px 宋体";
+		ctx.textAlign = "start";
+		ctx.textBaseline = "top";
+		ctx.fillText("这是Garyhu的字符串",400,500);
+		
+	</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>画文字练习</title>
+		<style type="text/css">
+			canvas{
+				background: #CCC;
+				font: italic;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="text">该浏览器不支持canvas</canvas>
+	</body>、
+	<script>
+		var can = document.getElementById("text");
+		can.width = 300;
+		can.height = 300;
+		var ctx = can.getContext("2d");
+		
+		ctx.shadowBlur = 3.8;
+		ctx.shadowColor = "#BDB76B";
+		ctx.shadowOffsetX = 10;
+		ctx.shadowOffsetY = -6;
+		
+		ctx.fillStyle = "#8A2BE2";
+		ctx.font = "italic 20px 宋体";
+		ctx.textBaseline = "top";
+		
+		ctx.fillText("这是Garyhu",30,50);
+		ctx.strokeStyle = "#F4A460";
+		ctx.font = "italic 30px 隶书";
+		
+		ctx.strokeText("这是个嘛啊",0,100,200);
+	</script>
+</html>

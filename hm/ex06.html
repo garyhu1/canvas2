@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>贝塞尔曲线</title>
+		<style type="text/css">
+			*{
+				overflow: hidden;
+			}
+			canvas{
+				background: #CCC;
+			}
+			div{
+				width: 500px;
+				height: 500px;
+				margin-top: 20px;
+				margin-left: 20px;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<canvas id="can">该浏览器不支持canvas</canvas>
+		</div>
+		<div>
+			<canvas id="vas">该浏览器不支持canvas</canvas>
+		</div>
+	</body>
+	<script type="text/javascript" charset="UTF-8">
+		var can = document.getElementById("can");
+		can.width = 500;
+		can.height = 500;
+		var ctx = can.getContext("2d");
+		
+		//画一次
+		ctx.beginPath();
+		ctx.moveTo(20,20);
+		ctx.bezierCurveTo(30,150,80,40,150,200);
+//		ctx.closePath();
+		
+		ctx.lineWidth = 3;
+		ctx.strokeStyle = "aqua";
+		ctx.stroke();
+		
+		//画二次
+		var vas = document.getElementById("vas");
+		vas.width = 500;
+		vas.height = 500;
+		var context = vas.getContext("2d");
+		
+		context.beginPath();
+		context.moveTo(30,30);
+		context.quadraticCurveTo(70,100,150,150);
+		
+		context.lineWidth = 2;
+		context.strokeStyle = "lightcoral"
+		context.stroke();
+		
+	</script>
+</html>

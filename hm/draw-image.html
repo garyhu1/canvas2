@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>绘制图片</title>
+	</head>
+	<body>
+		<canvas id="cav">该浏览器不支持canvas</canvas>
+	</body>
+	<script type="text/javascript">
+		//获取画布
+		var cav = document.getElementById("cav");
+		cav.width = 1000;
+		cav.height = 1000;
+		var ctx = cav.getContext("2d");
+		
+		//创建imageView
+		var img = new Image();
+		img.src = "../img/photo_3.jpg";
+		var icon = new Image();
+		icon.src = "../img/photo_5.jpg";
+		img.onload = function(){
+			ctx.drawImage(img,10,30,200,200);
+			
+			//第二、三个参数为图片显示位置，最后两个为宽高
+			ctx.drawImage(icon ,250,250,50,100)
+			
+			ctx.drawImage(icon,30,50,50,50,400,20,50,50)
+		}
+	</script>
+</html>
